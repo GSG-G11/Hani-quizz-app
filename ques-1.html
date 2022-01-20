@@ -131,14 +131,11 @@
 
     <button id="secondButton" class="answer-button"><span class="letter-box"><span class="letter">B</span></span>User
         Expression</button>
-    <input id="secondAnswer" type="hidden">
     <button id="thirdButton" class="answer-button"><span class="letter-box"><span class="letter">C</span></span>User
         Interface</button>
-    <input id="thirdAnswer" type="hidden">
-    <button id="fourthButton" class="answer-button"><span class="letter-box"><span class="letter">D</span></span>User
-        Experience</button>
-    <input id="forthAnswer" type="hidden">
 
+    <button id="forthButton" class="answer-button"><span class="letter-box"><span class="letter">D</span></span>User
+        Experience</button>
 
     <button id="submit-answer">OK
     </button>
@@ -149,37 +146,37 @@
 </div>
 <script>
     let firstButton = document.getElementById('firstButton');
-    let firstAnswer = document.getElementById('firstAnswer');
 
     let selectedAnswer = "";
-    document.getElementById('selection').textContent = `${selectedAnswer} `;
     firstButton.onclick = function() {
-        selectedAnswer = "A";
-        console.log(selectedAnswer);
         localStorage.setItem('answer', "A");
-
+        selectedAnswer = "A";
     }
 
     let secondButton = document.getElementById('secondButton');
-    let secondAnswer = document.getElementById('secondAnswer');
     secondButton.onclick = function() {
         selectedAnswer = "B";
         localStorage.setItem('answer', "B");
     }
 
     let thirdButton = document.getElementById('thirdButton');
-    let thirdAnswer = document.getElementById('thirdAnswer');
     thirdButton.onclick = function() {
         selectedAnswer = "C";
         localStorage.setItem('answer', "C");
     }
 
     let forthButton = document.getElementById('forthButton');
-    let forthAnswer = document.getElementById('forthAnswer');
-    forthButton.addEventListener("click", function() {
+    forthButton.onclick = function() {
         selectedAnswer = "D";
-        localStorage.setItem('answer', 'D');
-    })
+        localStorage.setItem('answer', "D");
+    }
+    document.getElementById('selection').textContent = `${selectedAnswer} Selected`;
+
+
+    let submit = document.getElementById('submit-answer');
+    submit.addEventListener('click', function() {
+        window.location = "file:///F:/G11%20Projects/Quiz%20App%200/quest-2.html";
+    });
 </script>
 
 </html>
