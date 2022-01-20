@@ -98,7 +98,12 @@
             font-weight: bold;
             position: relative;
             top: 10px;
-            right: 80px;
+            right: 50px;
+        }
+        
+        #selection {
+            /* position: relative; */
+            top: 20px;
         }
     </style>
 </head>
@@ -121,15 +126,60 @@
 </div>
 
 <div class="answers">
-    <button class="answer-button"><span class="letter-box"><span class="letter">A</span></span>User
-        Exchange</button>
-    <button class="answer-button"><span class="letter-box"><span class="letter">B</span></span>User Expression</button>
-    <button class="answer-button"><span class="letter-box"><span class="letter">C</span></span>User Interface</button>
-    <button class="answer-button"><span class="letter-box"><span class="letter">D</span></span>User Experience</button>
+    <button id="firstButton" class="answer-button"><span class="letter-box"><span class="letter">A</span></span>User
+        Exchange </button>
 
-    <button id="submit-answer">OK</object>
+    <button id="secondButton" class="answer-button"><span class="letter-box"><span class="letter">B</span></span>User
+        Expression</button>
+    <input id="secondAnswer" type="hidden">
+    <button id="thirdButton" class="answer-button"><span class="letter-box"><span class="letter">C</span></span>User
+        Interface</button>
+    <input id="thirdAnswer" type="hidden">
+    <button id="fourthButton" class="answer-button"><span class="letter-box"><span class="letter">D</span></span>User
+        Experience</button>
+    <input id="forthAnswer" type="hidden">
+
+
+    <button id="submit-answer">OK
     </button>
 
+
+    <span id="selection">Selected</span>
+
 </div>
+<script>
+    let firstButton = document.getElementById('firstButton');
+    let firstAnswer = document.getElementById('firstAnswer');
+
+    let selectedAnswer = "";
+    document.getElementById('selection').textContent = `${selectedAnswer} `;
+    firstButton.onclick = function() {
+        selectedAnswer = "A";
+        console.log(selectedAnswer);
+        localStorage.setItem('answer', "A");
+
+    }
+
+    let secondButton = document.getElementById('secondButton');
+    let secondAnswer = document.getElementById('secondAnswer');
+    secondButton.onclick = function() {
+        selectedAnswer = "B";
+        localStorage.setItem('answer', "B");
+    }
+
+    let thirdButton = document.getElementById('thirdButton');
+    let thirdAnswer = document.getElementById('thirdAnswer');
+    thirdButton.onclick = function() {
+        selectedAnswer = "C";
+        localStorage.setItem('answer', "C");
+    }
+
+    let forthButton = document.getElementById('forthButton');
+    let forthAnswer = document.getElementById('forthAnswer');
+    forthButton.addEventListener("click", function() {
+        selectedAnswer = "D";
+        localStorage.setItem('answer', 'D');
+    })
+</script>
 
 </html>
