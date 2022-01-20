@@ -78,4 +78,12 @@
     </div>
 </body>
 
+<script>
+    start = document.getElementById('start-button');
+    start.onclick = function() {
+        // Store name in storage;
+        localStorage.setItem('name', document.getElementById("name").value);
+    }
+</script>
+
 </html>
